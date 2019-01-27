@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link, scroller } from 'react-scroll'
+import { Link as NavLink, scroller } from 'react-scroll'
+import { Link } from 'gatsby'
+import { propOr, pathOr } from 'ramda'
 import NavIcon from '../../images/Nav-Icon.png'
 
 class Navbar extends React.Component {
@@ -31,14 +33,14 @@ class Navbar extends React.Component {
         this.setState({ [item]: false })
       }
     })
-    console.log(this.state)
   }
 
   render() {
+    const pageLinks = pathOr([], ['links'], this.props)
     return (
       <nav>
         <div className="landing-nav">
-          <Link
+          <NavLink
             name="landing"
             to="landing"
             spy={true}
@@ -47,10 +49,10 @@ class Navbar extends React.Component {
             // onClick={e => this.handleClick('landing')}
           >
             <img className="nav-icon" src={NavIcon} />
-          </Link>
+          </NavLink>
         </div>
         <div className="landing-nav-mobile">
-          <Link
+          <NavLink
             name="landing"
             to="landing"
             spy={true}
@@ -59,48 +61,29 @@ class Navbar extends React.Component {
             // onClick={e => this.handleClick('landing')}
           >
             <img className="nav-icon" src={NavIcon} />
-          </Link>
+          </NavLink>
         </div>
         <ul>
-          <li>
-            <Link
-              name="about"
-              className={`about-nav`}
-              to="about"
-              spy={true}
-              smooth={true}
-              duration={1000}
-              // onClick={e => this.handleClick('about')}
-            >
-              About
-            </Link>
-          </li>
-          <li>
-            <Link
-              name="projects"
-              className={`projects-nav`}
-              to="projects"
-              spy={true}
-              smooth={true}
-              duration={1000}
-              // onClick={e => this.handleClick('projects')}
-            >
-              Projects
-            </Link>
-          </li>
-          <li>
-            <Link
-              name="contact"
-              className={`contact-nav`}
-              to="contact"
-              spy={true}
-              smooth={true}
-              duration={1000}
-              // onClick={e => this.handleClick('contact')}
-            >
-              Contact
-            </Link>
-          </li>
+          {pageLinks.map(link => {
+            return (
+              <li>
+                <NavLink
+                  name={propOr(null, ['location'], link)}
+                  className={`${propOr(null, ['location'], link)}-nav`}
+                  to={propOr(null, ['location'], link)}
+                  spy={true}
+                  smooth={true}
+                  duration={1000}
+                  // onClick={e => this.handleClick('about')}
+                >
+                  {propOr(null, ['title'], link)}
+                </NavLink>
+              </li>
+            )
+          })}
+          <Link to="/blog" className="blog-nav">
+            Blog
+          </Link>
         </ul>
       </nav>
     )

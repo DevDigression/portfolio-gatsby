@@ -4,6 +4,12 @@ import { StaticQuery, graphql } from 'gatsby'
 import './styles.css'
 import Navbar from '../components/Navbar'
 
+const pageLinks = [
+  { title: 'About Me', location: 'about' },
+  { title: 'Projects', location: 'projects' },
+  { title: 'Contact', location: 'contact' },
+]
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -17,10 +23,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Navbar
-          links={{ contact: false }}
-          siteTitle={data.site.siteMetadata.title}
-        />
+        <Navbar links={pageLinks} siteTitle={data.site.siteMetadata.title} />
         {children}
         {/* <Footer /> */}
       </>
