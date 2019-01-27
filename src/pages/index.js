@@ -7,6 +7,7 @@ import SEO from '../components/seo'
 import Hero from '../components/sections/Hero'
 import About from '../components/sections/About'
 import Projects from '../components/sections/Projects'
+import Contact from '../components/sections/Contact'
 
 const MainSection = styled.div`
   min-width: 80%;
@@ -21,10 +22,11 @@ const MainSection = styled.div`
 const LandingPage = () => (
   <Layout>
     <MainSection>
-      <SEO title='Home' keywords={[`web development`, `gatsby`, `react`]} />
+      <SEO title="Home" keywords={[`web development`, `gatsby`, `react`]} />
       <Hero />
       <About />
       <Projects />
+      <Contact />
     </MainSection>
   </Layout>
 )
