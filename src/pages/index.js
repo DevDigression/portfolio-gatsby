@@ -1,10 +1,11 @@
 import React from 'react'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 // import Image from '../components/image'
 import SEO from '../components/seo'
-import Hero from '../components/Hero'
+import Hero from '../components/sections/Hero'
+import About from '../components/sections/About'
 
 const MainSection = styled.div`
   min-width: 80%;
@@ -19,8 +20,9 @@ const MainSection = styled.div`
 const LandingPage = () => (
   <Layout>
     <MainSection>
-      <SEO title="Home" keywords={[`web development`, `gatsby`, `react`]} />
+      <SEO title='Home' keywords={[`web development`, `gatsby`, `react`]} />
       <Hero />
+      <About />
     </MainSection>
   </Layout>
 )
