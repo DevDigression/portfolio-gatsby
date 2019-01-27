@@ -65,25 +65,30 @@ class Navbar extends React.Component {
         </div>
         <ul>
           {pageLinks.map(link => {
-            return (
+            const location = propOr(null, ['location'], link)
+            const title = propOr(null, ['title'], link)
+            return location.includes('/') ? (
+              <li>
+                <Link to={location} className={`${location.slice(1)}-nav`}>
+                  {title}
+                </Link>
+              </li>
+            ) : (
               <li>
                 <NavLink
-                  name={propOr(null, ['location'], link)}
-                  className={`${propOr(null, ['location'], link)}-nav`}
-                  to={propOr(null, ['location'], link)}
+                  name={location}
+                  className={`${location}-nav`}
+                  to={location}
                   spy={true}
                   smooth={true}
                   duration={1000}
                   // onClick={e => this.handleClick('about')}
                 >
-                  {propOr(null, ['title'], link)}
+                  {title}
                 </NavLink>
               </li>
             )
           })}
-          <Link to="/blog" className="blog-nav">
-            Blog
-          </Link>
         </ul>
       </nav>
     )

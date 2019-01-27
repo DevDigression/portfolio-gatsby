@@ -122,7 +122,7 @@ nav ul {
   font-size: 24px;
   color: #e3e2df;
   text-align: center;
-  margin-top: 250px;
+  margin-top: 220px;
   margin-left: 55px;
   position: fixed;
   padding-left: 0;
@@ -522,9 +522,9 @@ footer {
   }
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
   .landing-nav-mobile {
-    margin: 10px auto 10px 15px;
+    margin: 10px auto 10px 10px;
   }
 
   nav li {
@@ -540,5 +540,21 @@ footer {
     width: 300px;
     margin: 0 auto 20px auto;
     padding-left: 40px;
+  }
+
+  @media only screen and (max-width: 400px) {
+    .landing-nav-mobile {
+      margin: 10px auto 10px 10px;
+    }
+
+    nav li {
+      padding: 0 12px;
+    }
+  }
+
+  @media only screen and (max-width: 350px) {
+    nav li {
+      padding: 0 10px;
+    }
   }
 }

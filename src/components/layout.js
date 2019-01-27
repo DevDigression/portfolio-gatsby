@@ -8,6 +8,7 @@ const pageLinks = [
   { title: 'About Me', location: 'about' },
   { title: 'Projects', location: 'projects' },
   { title: 'Contact', location: 'contact' },
+  { title: 'Blog', location: '/blog' },
 ]
 
 const Layout = ({ children }) => (
