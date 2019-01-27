@@ -1,9 +1,9 @@
 import React from 'react'
 
 const About = props => (
-  <div id='about' class='about-page'>
+  <div id='about' className='about-page'>
     <header>About Me</header>
-    <div class='about-text'>
+    <div className='about-text'>
       <p>
         For the past six years, I have been a social studies teacher - as well
         as de facto tech support - at a small private school in South Florida.
