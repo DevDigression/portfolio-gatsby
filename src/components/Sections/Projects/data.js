@@ -3,7 +3,7 @@ import ApplyYourselfStats from '../../../images/ApplyYourselfStats.png'
 import BeThereHeader from '../../../images/BeThereHeader.png'
 import BeThereMap from '../../../images/BeThereMap.png'
 import StudyficientHeader from '../../../images/StudyficientHeader.png'
-import StudyficientStudyspace from '../../../images/StudyficientStudypace.png'
+import StudyficientStudyspace from '../../../images/StudyficientStudyspace.png'
 
 export const ProjectData = [
   {
@@ -13,6 +13,7 @@ export const ProjectData = [
     description2: `Apply Yourself takes care of the drudgery of monitoring job prospects from beginning to end by keeping all aspects collected and organized, with a particular emphasis on the elements related to coding jobs!`,
     liveLink: `https://apply-yourself.netlify.com/`,
     codeLink: `https://github.com/DevDigression/apply-yourself-client`,
+    alignImages: `left`,
     headerImage: ApplyYourselfHeader,
     appImage: ApplyYourselfStats,
     mobileImage: `http://devdigression.com/wp-content/uploads/2018/03/Apply-Yourself-Intro.jpg`,
@@ -24,17 +25,19 @@ export const ProjectData = [
     description2: `Studyficient takes into account different learning styles by allowing you to use written notes combined with videos for lecture material or other content you find helpful. Just as importantly, Studyficient keeps you organized by allowing you to categorize and arrange your notes and videos by subject.`,
     liveLink: `https://studyficient.herokuapp.com/`,
     codeLink: `https://github.com/DevDigression/Studyficient`,
+    alignImages: `right`,
     headerImage: StudyficientHeader,
     appImage: StudyficientStudyspace,
     mobileImage: `http://devdigression.com/wp-content/uploads/2017/12/Studyficient-Header.jpg`,
   },
   {
-    title: `Be <em>There</em> - For Your Career`,
-    technologies: ['D3.js', 'JavaScript + jQuery', 'HTML5', 'CSS3'],
+    title: `Be There - For Your Career`,
+    technologies: ['D3.js', 'JavaScript + jQuery', 'HTML5 + CSS3'],
     description1: `Planning to enter a new career field? Looking to change things up a bit in your current field? This app will help you do either (or both)! Be There allows you to search for a career field and receive data about the best locations for that field based on the number of jobs available – including the states and cities with the most jobs.`,
     description2: `Additionally, you can enter your current job title in order to find related jobs, along with related statistics such as the number of jobs available and median salary. Links are provided for each job title in order to browse the job listings over at Glassdoor.`,
     liveLink: `https://devdigression.github.io/Be-There/`,
     codeLink: `https://github.com/DevDigression/Be-There`,
+    alignImages: `left`,
     headerImage: BeThereHeader,
     appImage: BeThereMap,
     mobileImage: `http://devdigression.com/wp-content/uploads/2017/11/Featured-Image-Be-There.png`,
