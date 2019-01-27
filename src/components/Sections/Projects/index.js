@@ -2,17 +2,17 @@ import React from 'react'
 
 const Projects = () => {
   return (
-    <div id='projects' className='projects-page'>
+    <div id="projects" className="projects-page">
       <header>Projects</header>
-      <div className='project'>
-        <div className='project-image left'>
-          <img className='project-image-left left' src='' />
-          <img className='project-image-left left' src='' />
-          <img className='project-image-mobile' src='' />
+      <div className="project">
+        <div className="project-image left">
+          <img className="project-image-left left" src="" />
+          <img className="project-image-left left" src="" />
+          <img className="project-image-mobile" src="" />
         </div>
-        <div className='project-description right'>
+        <div className="project-description right">
           <h2>Apply Yourself</h2>
-          <div className='project-tech'>
+          <div className="project-tech">
             <ul>
               <li>
                 <strong>React</strong> + <strong>Redux</strong>
@@ -39,29 +39,29 @@ const Projects = () => {
             organized, with a particular emphasis on the elements related to
             coding jobs!
           </p>
-          <div className='project-links'>
-            <a href='https://apply-yourself.netlify.com/' target='_blank'>
+          <div className="project-links">
+            <a href="https://apply-yourself.netlify.com/" target="_blank">
               <button>Live</button>
             </a>
             <a
-              href='https://github.com/DevDigression/apply-yourself-client'
-              target='_blank'
+              href="https://github.com/DevDigression/apply-yourself-client"
+              target="_blank"
             >
               <button>Code</button>
             </a>
           </div>
         </div>
       </div>
-      <div className='clear' />
-      <div className='project'>
-        <div className='project-image right'>
-          <img className='project-image-right right' src='' />
-          <img className='project-image-right right' src='' />
-          <img className='project-image-mobile' src='' />
+      <div className="clear" />
+      <div className="project">
+        <div className="project-image right">
+          <img className="project-image-right right" src="" />
+          <img className="project-image-right right" src="" />
+          <img className="project-image-mobile" src="" />
         </div>
-        <div className='project-description left'>
+        <div className="project-description left">
           <h2>Studyficient</h2>
-          <div className='project-tech'>
+          <div className="project-tech">
             <ul>
               <li>
                 <strong>Node</strong> + <strong>Express</strong>{' '}
@@ -92,34 +92,34 @@ const Projects = () => {
             Studyficient keeps you organized by allowing you to categorize and
             arrange your notes and videos by subject.
           </p>
-          <div className='project-links'>
-            <a href='https://studyficient.herokuapp.com/' target='_blank'>
+          <div className="project-links">
+            <a href="https://studyficient.herokuapp.com/" target="_blank">
               <button>Live</button>
             </a>
             <a
-              href='https://github.com/DevDigression/Studyficient'
-              target='_blank'
+              href="https://github.com/DevDigression/Studyficient"
+              target="_blank"
             >
               <button>Code</button>
             </a>
           </div>
         </div>
       </div>
-      <div className='clear' />
-      <div className='project'>
-        <div className='project-image left'>
-          <img className='project-image-left left' src='' />
-          <img className='project-image-left' src='' />
+      <div className="clear" />
+      <div className="project">
+        <div className="project-image left">
+          <img className="project-image-left left" src="" />
+          <img className="project-image-left" src="" />
           <img
-            className='project-image-mobile'
-            src='http://devdigression.com/wp-content/uploads/2017/11/Featured-Image-Be-There.png'
+            className="project-image-mobile"
+            src="http://devdigression.com/wp-content/uploads/2017/11/Featured-Image-Be-There.png"
           />
         </div>
-        <div className='project-description right'>
+        <div className="project-description right">
           <h2>
             Be <em>There</em> - For Your Career
           </h2>
-          <div className='project-tech'>
+          <div className="project-tech">
             <ul>
               <li>
                 <strong>D3.js</strong>{' '}
@@ -154,11 +154,11 @@ const Projects = () => {
             jobs available and median salary. Links are provided for each job
             title in order to browse the job listings over at Glassdoor.
           </p>
-          <div className='project-links'>
-            <a href='https://devdigression.github.io/Be-There/' target='_blank'>
+          <div className="project-links">
+            <a href="https://devdigression.github.io/Be-There/" target="_blank">
               <button>Live</button>
             </a>
-            <a href='https://github.com/DevDigression/Be-There' target='_blank'>
+            <a href="https://github.com/DevDigression/Be-There" target="_blank">
               <button>Code</button>
             </a>
           </div>
