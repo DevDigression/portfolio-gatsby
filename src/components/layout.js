@@ -17,7 +17,10 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Navbar siteTitle={data.site.siteMetadata.title} />
+        <Navbar
+          links={{ contact: false }}
+          siteTitle={data.site.siteMetadata.title}
+        />
         {children}
         {/* <Footer /> */}
       </>
@@ -26,7 +29,7 @@ const Layout = ({ children }) => (
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 }
 
 export default Layout

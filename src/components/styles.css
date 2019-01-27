@@ -133,6 +133,18 @@ nav li {
   padding-top: 25px;
 }
 
+#about {
+  padding-top: 50px;
+}
+
+#projects {
+  padding-top: 50px;
+}
+
+#contact {
+  padding: 50px 0 100px 0;
+}
+
 .contact-page a:link,
 .contact-page a:active,
 .contact-page a:visited {

@@ -13,7 +13,7 @@ library.add(faEnvelope, faGithub, faFacebook, faTwitter, faLinkedinIn)
 
 const Contact = props => {
   return (
-    <div id="contact" className="contact-page">
+    <div name="contact" id="contact" className="contact-page">
       <header>Contact</header>
       <div className="contact-text">
         <p>
