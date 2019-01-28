@@ -1,6 +1,8 @@
 ---
 path: '/2017-08-20'
 title: 'You Can Take the Teacher Out of the Classroom...'
+author: 'Chris Rodgers'
+date: 'August 20, 2017'
 ---
 
 Well… you might not be my student, per se, but be forewarned: you may find yourself unintentionally learning things if you read further (in case you are my student: tutorial inc!)

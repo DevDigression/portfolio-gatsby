@@ -1,6 +1,8 @@
 ---
 path: '/2017-08-13'
 title: 'Digression From What?'
+author: 'Chris Rodgers'
+date: 'August 13, 2017'
 ---
 
 To paraphrase George Ripley, founder of the Brook Farm utopian community outside of Boston in the mid-nineteenth century, I consider myself a humble pioneer in the mightiest of works – and by that, I mean that I am a teacher (read ‘learning facilitator’).
