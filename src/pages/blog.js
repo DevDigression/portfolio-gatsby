@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { propOr, pathOr } from 'ramda'
+import BlogNavbar from '../components/Navbar/blog'
 
 const PostsSection = styled.div`
   margin: 100px auto 100px 300px;
@@ -17,6 +18,7 @@ const Blog = ({ data }) => {
   const blogPosts = pathOr([], ['allMarkdownRemark', 'edges'], data)
   return (
     <Layout>
+      <BlogNavbar />
       <PostsSection>
         <SEO title="Blog" keywords={[`web development`, `gatsby`, `react`]} />
         {blogPosts.map(item => {

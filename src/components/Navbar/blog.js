@@ -5,13 +5,12 @@ import { propOr, pathOr } from 'ramda'
 import NavIcon from '../../images/Nav-Icon.png'
 
 const pageLinks = [
-  { title: 'About Me', location: 'about' },
-  { title: 'Projects', location: 'projects' },
-  { title: 'Contact', location: 'contact' },
-  { title: 'Blog', location: '/blog' },
+  { title: 'About Me', location: '/#about' },
+  { title: 'Projects', location: '/#projects' },
+  { title: 'Contact', location: '/#contact' },
 ]
 
-class HomeNavbar extends React.Component {
+class BlogNavbar extends React.Component {
   constructor(props) {
     super(props)
 
@@ -95,10 +94,23 @@ class HomeNavbar extends React.Component {
               </li>
             )
           })}
+          <li>
+            <NavLink
+              name="blog"
+              className={`blog-nav active`}
+              to="#"
+              spy={true}
+              smooth={true}
+              duration={1000}
+              // onClick={e => this.handleClick('about')}
+            >
+              Blog
+            </NavLink>
+          </li>
         </ul>
       </nav>
     )
   }
 }
 
-export default HomeNavbar
+export default BlogNavbar
