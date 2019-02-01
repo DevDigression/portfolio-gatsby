@@ -4,9 +4,11 @@ import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { propOr, pathOr } from 'ramda'
 import BlogNavbar from '../components/Navbar/blog'
+import Header from '../components/Sections/Header'
 
 const PostsSection = styled.div`
   margin: 100px auto 100px 300px;
+  height: 100vh;
   @media only screen and (max-width: 768px) {
     width: 100%;
     margin: 100px auto;
@@ -21,10 +23,11 @@ const Blog = ({ data }) => {
       <BlogNavbar />
       <PostsSection>
         <SEO title="Blog" keywords={[`web development`, `gatsby`, `react`]} />
+        <Header page="blog" />
         {blogPosts.map(item => {
           const post = propOr(null, ['node'], item)
           return (
-            <div>
+            <div id="post">
               <h1>{post.frontmatter.title}</h1>
               <div>{post.excerpt}</div>
             </div>
