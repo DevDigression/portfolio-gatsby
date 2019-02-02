@@ -24,7 +24,7 @@ class BlogNavbar extends React.Component {
             to="blog-header"
             spy={true}
             smooth={true}
-            duration={1000}
+            duration={800}
           >
             <img className="nav-icon" src={NavIcon} />
           </NavLink>
@@ -35,7 +35,7 @@ class BlogNavbar extends React.Component {
             to="#blog-header"
             spy={true}
             smooth={true}
-            duration={1000}
+            duration={800}
           >
             <img className="nav-icon" src={NavIcon} />
           </NavLink>
@@ -58,7 +58,7 @@ class BlogNavbar extends React.Component {
                   to={location}
                   spy={true}
                   smooth={true}
-                  duration={1000}
+                  duration={800}
                 >
                   {title}
                 </NavLink>
@@ -72,7 +72,7 @@ class BlogNavbar extends React.Component {
               to="#"
               spy={true}
               smooth={true}
-              duration={1000}
+              duration={800}
             >
               Blog
             </NavLink>

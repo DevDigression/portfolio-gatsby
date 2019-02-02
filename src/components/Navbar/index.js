@@ -25,7 +25,7 @@ class HomeNavbar extends React.Component {
             to="landing"
             spy={true}
             smooth={true}
-            duration={1000}
+            duration={800}
           >
             <img className="nav-icon" src={NavIcon} />
           </NavLink>
@@ -36,7 +36,7 @@ class HomeNavbar extends React.Component {
             to="landing"
             spy={true}
             smooth={true}
-            duration={1000}
+            duration={800}
           >
             <img className="nav-icon" src={NavIcon} />
           </NavLink>
@@ -59,7 +59,7 @@ class HomeNavbar extends React.Component {
                   to={location}
                   spy={true}
                   smooth={true}
-                  duration={1000}
+                  duration={800}
                 >
                   {title}
                 </NavLink>
