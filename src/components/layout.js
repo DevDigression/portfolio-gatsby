@@ -15,12 +15,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
-      <>
-        {children}
-        {/* <Footer /> */}
-      </>
-    )}
+    render={data => <>{children}</>}
   />
 )
 
