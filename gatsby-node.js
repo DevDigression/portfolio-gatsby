@@ -1,5 +1,5 @@
 const path = require('path')
-
+const { propOr } = require('ramda')
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators
   const postTemplate = path.resolve('src/templates/Posts/index.js')
@@ -7,15 +7,17 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   return graphql(
     `
       {
-        allMarkdownRemark {
+        allContentfulPost {
           edges {
             node {
               id
-              html
-              frontmatter {
-                path
-                title
-                author
+              entryTitle
+              slug
+              postTitle
+              postBody {
+                internal {
+                  content
+                }
               }
             }
           }
@@ -27,16 +29,15 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       return Promise.reject(res.errors)
     }
 
-    res.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    res.data.allContentfulPost.edges.forEach(({ node }) => {
+      const slug = propOr('unknown', ['slug'], node)
+
       createPage({
-        path: node.frontmatter.path,
+        path: `/blog/${slug}`,
         component: postTemplate,
         // Context passes arguments to graphql query on each page
         // Path is already defined above as 'URL path' in Gatsby
-        context: {
-          author: node.frontmatter.author,
-          title: node.frontmatter.title,
-        },
+        context: {},
       })
     })
   })

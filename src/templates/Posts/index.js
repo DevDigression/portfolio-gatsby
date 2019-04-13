@@ -1,27 +1,20 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
-const Template = ({ data }) => {
-  console.log(data)
-  const { markdownRemark: post } = data
-  return (
-    <div>
-      <h1>{post.frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-    </div>
-  )
+const PostTemplate = data => {
+  return <div>POST CONTENT</div>
 }
 
-export default Template
+export default PostTemplate
 
-export const postQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        path
-        title
-      }
-    }
-  }
-`
+// export const pageQuery = graphql`
+//   query postsQuery {
+//     posts: allContentfulPosts {
+//       edges {
+//         node {
+//           entryTitle
+//         }
+//       }
+//     }
+//   }
+// `

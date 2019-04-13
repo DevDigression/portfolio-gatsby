@@ -43,14 +43,14 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: getEnv('CONTENTFUL_SPACE_ID'),
-        accessToken: getEnv('CONTENTFUL_API_KEY'),
+        accessToken: getEnv('CONTENTFUL_ACCESS_TOKEN'),
       },
     },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Roboto'],
+          families: ['Oswald'],
         },
       },
     },
