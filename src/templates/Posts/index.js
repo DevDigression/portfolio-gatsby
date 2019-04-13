@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import { pathOr } from 'ramda'
+import Markdown from '../../components/Markdown'
 
 const PostTemplate = ({ data }) => {
   const title = pathOr('', ['contentfulPost', 'postTitle'], data)
@@ -13,7 +14,7 @@ const PostTemplate = ({ data }) => {
   return (
     <div>
       <h3>{title}</h3>
-      <p>{body}</p>
+      <Markdown value={body} />
     </div>
   )
 }

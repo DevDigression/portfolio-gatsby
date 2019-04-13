@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Markdown from '../components/Markdown'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 import { Link } from 'gatsby'
@@ -72,7 +73,9 @@ const Blog = ({ data }) => {
           return (
             <PostItem>
               <PostTitle>{post.postTitle}</PostTitle>
-              <PostExcerpt>{post.postExcerpt.internal.content}</PostExcerpt>
+              <PostExcerpt>
+                <Markdown value={post.postExcerpt.internal.content} />
+              </PostExcerpt>
               <PostLink to={`blog/${post.slug}`}>Read More</PostLink>
             </PostItem>
           )
