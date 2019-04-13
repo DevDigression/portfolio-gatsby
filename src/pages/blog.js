@@ -86,7 +86,7 @@ export default Blog
 
 export const postsQuery = graphql`
   query postsQuery {
-    posts: allContentfulPost {
+    posts: allContentfulPost(sort: { fields: [entryTitle], order: DESC }) {
       edges {
         node {
           id
