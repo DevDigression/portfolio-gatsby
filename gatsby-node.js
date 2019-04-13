@@ -10,11 +10,16 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         allContentfulPost {
           edges {
             node {
-              id
+              contentful_id
               entryTitle
               slug
               postTitle
               postBody {
+                internal {
+                  content
+                }
+              }
+              postExcerpt {
                 internal {
                   content
                 }
@@ -30,6 +35,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     }
 
     res.data.allContentfulPost.edges.forEach(({ node }) => {
+      const postId = propOr('', ['contentful_id'], node)
       const slug = propOr('unknown', ['slug'], node)
 
       createPage({
@@ -37,7 +43,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         component: postTemplate,
         // Context passes arguments to graphql query on each page
         // Path is already defined above as 'URL path' in Gatsby
-        context: {},
+        context: { postId: postId },
       })
     })
   })

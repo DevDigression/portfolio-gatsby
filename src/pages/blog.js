@@ -59,7 +59,7 @@ const PostLink = styled(Link)`
 `
 
 const Blog = ({ data }) => {
-  const blogPosts = pathOr([], ['allMarkdownRemark', 'edges'], data)
+  const blogPosts = pathOr([], ['posts', 'edges'], data)
   return (
     <Layout>
       <BlogNavbar />
@@ -71,9 +71,9 @@ const Blog = ({ data }) => {
           console.log(post)
           return (
             <PostItem>
-              <PostTitle>{post.frontmatter.title}</PostTitle>
-              <PostExcerpt>{post.excerpt}</PostExcerpt>
-              <PostLink to={post.frontmatter.path}>Read More</PostLink>
+              <PostTitle>{post.postTitle}</PostTitle>
+              <PostExcerpt>{post.postExcerpt.internal.content}</PostExcerpt>
+              <PostLink to={`blog/${post.slug}`}>Read More</PostLink>
             </PostItem>
           )
         })}
@@ -84,19 +84,24 @@ const Blog = ({ data }) => {
 
 export default Blog
 
-export const blogQuery = graphql`
-  query BlogPosts {
-    allMarkdownRemark {
+export const postsQuery = graphql`
+  query postsQuery {
+    posts: allContentfulPost {
       edges {
         node {
           id
-          html
-          excerpt
-          frontmatter {
-            path
-            title
-            author
-            date
+          entryTitle
+          slug
+          postTitle
+          postBody {
+            internal {
+              content
+            }
+          }
+          postExcerpt {
+            internal {
+              content
+            }
           }
         }
       }
