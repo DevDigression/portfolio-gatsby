@@ -65,6 +65,19 @@ const PostPageNav = styled.div`
   justify-content: space-between;
   width: 90%;
   padding-bottom: 50px;
+  > .next-nav {
+    margin-left: auto;
+  }
+  > a {
+    text-decoration: none;
+    color: #5d001e;
+    & hover {
+      color: #5d001e;
+    }
+    & visited {
+      color: #5d001e;
+    }
+  }
   @media only screen and (max-width: 768px) {
     padding-top: 10px;
     margin: 0 auto;
@@ -100,6 +113,7 @@ const BlogPage = ({ data, pathContext }) => {
         <PostPageNav>
           {previousPage && (
             <Link
+              className="previous-nav"
               to={
                 previousPagePath === 1 ? `/blog` : `/blog/${previousPagePath}`
               }
@@ -107,7 +121,11 @@ const BlogPage = ({ data, pathContext }) => {
               Newer Posts
             </Link>
           )}
-          {nextPage && <Link to={`/blog/${nextPagePath}`}>Older Posts</Link>}
+          {nextPage && (
+            <Link className="next-nav" to={`/blog/${nextPagePath}`}>
+              Older Posts
+            </Link>
+          )}
         </PostPageNav>
       </PostsSection>
     </Layout>
