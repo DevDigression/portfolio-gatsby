@@ -29,7 +29,8 @@ const PostItem = styled.div`
   background-color: #fff;
   color: #333;
   @media (max-width: 768px) {
-    margin: 100px auto;
+    width: 95%;
+    margin: 30px auto;
   }
 `
 
@@ -59,7 +60,16 @@ const PostLink = styled(Link)`
   }
 `
 
-const PostPageNav = styled.div``
+const PostPageNav = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  padding-bottom: 50px;
+  @media only screen and (max-width: 768px) {
+    padding-top: 10px;
+    margin: 0 auto;
+  }
+`
 
 const BlogPage = ({ data, pathContext }) => {
   const page = pathOr(null, ['page'], pathContext)
