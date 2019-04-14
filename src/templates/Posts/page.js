@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import Markdown from '../components/Markdown'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Markdown from '../../components/Markdown'
+import Layout from '../../components/layout'
+import SEO from '../../components/seo'
 import { Link } from 'gatsby'
 import { propOr, pathOr } from 'ramda'
-import BlogNavbar from '../components/Navbar/blog'
-import Header from '../components/Sections/Header'
+import BlogNavbar from '../../components/Navbar/blog'
+import Header from '../../components/Sections/Header'
 
 const PostsSection = styled.div`
   margin: 100px auto 100px 300px;
@@ -60,6 +60,7 @@ const PostLink = styled(Link)`
 `
 
 const Blog = ({ data }) => {
+  console.log(data)
   const blogPosts = pathOr([], ['posts', 'edges'], data)
   return (
     <Layout>
@@ -88,8 +89,12 @@ const Blog = ({ data }) => {
 export default Blog
 
 export const postsQuery = graphql`
-  query postsQuery {
-    posts: allContentfulPost(sort: { fields: [entryTitle], order: DESC }) {
+  query postsQuery($skip: Int!, $limit: Int!) {
+    posts: allContentfulPost(
+      sort: { fields: [entryTitle], order: DESC }
+      limit: $limit
+      skip: $skip
+    ) {
       edges {
         node {
           id
