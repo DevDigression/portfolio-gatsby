@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import { pathOr } from 'ramda'
 import Markdown from '../../components/Markdown'
 
-const PostTemplate = ({ data }) => {
+const PostSingle = ({ data }) => {
   const title = pathOr('', ['contentfulPost', 'postTitle'], data)
   const body = pathOr(
     '',
@@ -19,7 +19,7 @@ const PostTemplate = ({ data }) => {
   )
 }
 
-export default PostTemplate
+export default PostSingle
 
 export const postQuery = graphql`
   query blogPost($postId: String!) {

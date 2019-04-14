@@ -59,7 +59,7 @@ const PostLink = styled(Link)`
   }
 `
 
-const Blog = ({ data }) => {
+const BlogPage = ({ data }) => {
   console.log(data)
   const blogPosts = pathOr([], ['posts', 'edges'], data)
   return (
@@ -86,7 +86,7 @@ const Blog = ({ data }) => {
   )
 }
 
-export default Blog
+export default BlogPage
 
 export const postsQuery = graphql`
   query postsQuery($skip: Int!, $limit: Int!) {
