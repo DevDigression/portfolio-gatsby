@@ -59,9 +59,15 @@ const PostLink = styled(Link)`
   }
 `
 
-const BlogPage = ({ data }) => {
-  console.log(data)
+const PostPageNav = styled.div``
+
+const BlogPage = ({ data, pathContext }) => {
+  const page = pathOr(null, ['page'], pathContext)
   const blogPosts = pathOr([], ['posts', 'edges'], data)
+  const previousPage = page !== 1
+  const previousPagePath = page - 1
+  const nextPage = pathOr(false, ['posts', 'pageInfo', 'hasNextPage'], data)
+  const nextPagePath = page + 1
   return (
     <Layout>
       <BlogNavbar />
@@ -69,8 +75,8 @@ const BlogPage = ({ data }) => {
         <SEO title="Blog" keywords={[`web development`, `gatsby`, `react`]} />
         <Header page="blog" />
         {blogPosts.map(item => {
+          console.log(item)
           const post = propOr(null, ['node'], item)
-          console.log(post)
           return (
             <PostItem>
               <PostTitle>{post.postTitle}</PostTitle>
@@ -81,6 +87,18 @@ const BlogPage = ({ data }) => {
             </PostItem>
           )
         })}
+        <PostPageNav>
+          {previousPage && (
+            <Link
+              to={
+                previousPagePath === 1 ? `/blog` : `/blog/${previousPagePath}`
+              }
+            >
+              Newer Posts
+            </Link>
+          )}
+          {nextPage && <Link to={`/blog/${nextPagePath}`}>Older Posts</Link>}
+        </PostPageNav>
       </PostsSection>
     </Layout>
   )
@@ -95,6 +113,9 @@ export const postsQuery = graphql`
       limit: $limit
       skip: $skip
     ) {
+      pageInfo {
+        hasNextPage
+      }
       edges {
         node {
           id

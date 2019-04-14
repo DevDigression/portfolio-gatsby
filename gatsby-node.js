@@ -46,7 +46,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         path: index === 0 ? `/blog` : `/blog/${index + 1}`,
         component: blogPage,
         context: {
-          index: index,
+          page: index + 1,
           limit: postsPerPage,
           skip: index * postsPerPage,
         },
