@@ -7,6 +7,11 @@ import { Link } from 'gatsby'
 import { propOr, pathOr } from 'ramda'
 import BlogNavbar from '../../components/Navbar/blog'
 import Header from '../../components/Sections/Header'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faReply, faShare } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faReply, faShare)
 
 const PostsSection = styled.div`
   margin: 100px auto 100px 300px;
@@ -118,12 +123,12 @@ const BlogPage = ({ data, pathContext }) => {
                 previousPagePath === 1 ? `/blog` : `/blog/${previousPagePath}`
               }
             >
-              Newer Posts
+              <FontAwesomeIcon icon="reply" /> Newer Posts
             </Link>
           )}
           {nextPage && (
             <Link className="next-nav" to={`/blog/${nextPagePath}`}>
-              Older Posts
+              Older Posts <FontAwesomeIcon icon="share" />
             </Link>
           )}
         </PostPageNav>
