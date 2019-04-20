@@ -103,7 +103,6 @@ const BlogPage = ({ data, pathContext }) => {
         <SEO title="Blog" keywords={[`web development`, `gatsby`, `react`]} />
         <Header page="blog" />
         {blogPosts.map(item => {
-          console.log(item)
           const post = propOr(null, ['node'], item)
           return (
             <PostItem>

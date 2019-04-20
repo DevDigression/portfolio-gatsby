@@ -8,7 +8,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   return graphql(
     `
       {
-        allContentfulPost {
+        allContentfulPost(sort: { fields: [entryTitle], order: DESC }) {
           edges {
             node {
               contentful_id
@@ -40,6 +40,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const posts = res.data.allContentfulPost.edges
     const postsPerPage = 6
     const numPages = Math.ceil(posts.length / postsPerPage)
+    let firstPost = 0
+    let lastPost = postsPerPage
 
     Array.from({ length: numPages }).forEach((_, index) => {
       createPage({
@@ -51,17 +53,27 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           skip: index * postsPerPage,
         },
       })
-    })
-    // Create page for each post with path based on published date
-    res.data.allContentfulPost.edges.forEach(({ node }) => {
-      const postId = propOr('', ['contentful_id'], node)
-      const slug = propOr('unknown', ['slug'], node)
 
-      createPage({
-        path: `/blog/${slug}`,
-        component: postTemplate,
-        context: { postId: postId },
+      // Take posts for each page and create slugs for them
+      // based on slug from Contentful
+      let pagePosts = posts.slice(firstPost, lastPost)
+
+      pagePosts.forEach(({ node }) => {
+        const postId = propOr('', ['contentful_id'], node)
+        const slug = propOr('unknown', ['slug'], node)
+
+        // index is still in scope to be used for fromPage
+        // access to fromPage allows 'back' button from single post page
+        createPage({
+          path: `/blog/${slug}`,
+          component: postTemplate,
+          context: { postId, fromPage: index + 1 },
+        })
       })
+      firstPost += postsPerPage
+      lastPost += postsPerPage
     })
+
+    // Create page for each post with path based on published date
   })
 }

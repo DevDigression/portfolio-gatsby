@@ -1,8 +1,13 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import { pathOr } from 'ramda'
 import styled from 'styled-components'
 import Markdown from '../../components/Markdown'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faReply } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faReply)
 
 const PostPage = styled.div`
   display: flex;
@@ -60,18 +65,34 @@ const PostContent = styled(Markdown)`
   }
 `
 
-const PostSingle = ({ data }) => {
+const BackLink = styled(Link)`
+  text-decoration: none;
+  color: #5d001e;
+  & hover {
+    color: #5d001e;
+  }
+  & visited {
+    color: #5d001e;
+  }
+`
+
+const PostSingle = ({ data, pathContext }) => {
   const title = pathOr('', ['contentfulPost', 'postTitle'], data)
   const body = pathOr(
     '',
     ['contentfulPost', 'postBody', 'internal', 'content'],
     data
   )
+  const fromPage = pathOr('', ['fromPage'], pathContext)
+  const backToPage = fromPage === 1 ? `/blog` : `/blog/${fromPage}`
 
   return (
     <PostPage>
       <PostTitle>{title}</PostTitle>
       <PostContent value={body} />
+      <BackLink to={backToPage}>
+        <FontAwesomeIcon icon="reply" /> Back to Posts
+      </BackLink>
     </PostPage>
   )
 }
@@ -82,6 +103,7 @@ export const postQuery = graphql`
   query blogPost($postId: String!) {
     contentfulPost(contentful_id: { eq: $postId }) {
       contentful_id
+      entryTitle
       postTitle
       postBody {
         internal {
