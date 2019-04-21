@@ -54,7 +54,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         },
       })
 
-      // Take posts for each page and create slugs for them
+      // Take posts for each page and create pages for them
       // based on slug from Contentful
       let pagePosts = posts.slice(firstPost, lastPost)
 

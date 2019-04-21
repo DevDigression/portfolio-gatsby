@@ -19,7 +19,7 @@ const PostsSection = styled.div`
   @media only screen and (max-width: 768px) {
     width: 100%;
     margin: 100px auto;
-    padding: 20px;
+    padding: 15px;
   }
 `
 
@@ -34,15 +34,37 @@ const PostItem = styled.div`
   background-color: #fff;
   color: #333;
   @media (max-width: 768px) {
-    width: 95%;
+    width: 100%;
     margin: 30px auto;
   }
 `
 
 const PostTitle = styled.h2``
 
-const PostExcerpt = styled.p`
+const PostExcerpt = styled(Markdown)`
   margin-top: 20px;
+  > p {
+    font-size: 18px;
+    line-height: 1.25em;
+    margin: 20px auto;
+    > a {
+      text-decoration: none;
+      color: #9a1750;
+      &:visited,
+      &:active,
+      &:focus {
+        color: #9a1750;
+      }
+      > img {
+        max-width: 100%;
+        margin: 20px auto;
+      }
+    }
+    > img {
+      max-width: 100%;
+      margin: 20px auto;
+    }
+  }
 `
 
 const PostLink = styled(Link)`
@@ -107,9 +129,7 @@ const BlogPage = ({ data, pathContext }) => {
           return (
             <PostItem>
               <PostTitle>{post.postTitle}</PostTitle>
-              <PostExcerpt>
-                <Markdown value={post.postExcerpt.internal.content} />
-              </PostExcerpt>
+              <PostExcerpt value={post.postExcerpt.internal.content} />
               <PostLink to={`blog/${post.slug}`}>Read More</PostLink>
             </PostItem>
           )
