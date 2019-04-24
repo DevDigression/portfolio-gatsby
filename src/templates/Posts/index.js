@@ -3,6 +3,7 @@ import { graphql, Link } from 'gatsby'
 import { pathOr } from 'ramda'
 import styled from 'styled-components'
 import Markdown from '../../components/Markdown'
+import { theme } from '../../theme'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faReply } from '@fortawesome/free-solid-svg-icons'
@@ -37,11 +38,11 @@ const PostContent = styled(Markdown)`
     margin: 50px auto;
     > a {
       text-decoration: none;
-      color: #9a1750;
+      color: ${theme.colors.deepPink};
       &:visited,
       &:active,
       &:focus {
-        color: #9a1750;
+        color: ${theme.colors.deepPink};
       }
       > img {
         max-width: 100%;
@@ -67,12 +68,12 @@ const PostContent = styled(Markdown)`
 
 const BackLink = styled(Link)`
   text-decoration: none;
-  color: #5d001e;
+  color: ${theme.colors.deepRed};
   & hover {
-    color: #5d001e;
+    color: ${theme.colors.deepRed};
   }
   & visited {
-    color: #5d001e;
+    color: ${theme.colors.deepRed};
   }
 `
 

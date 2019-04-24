@@ -5,6 +5,7 @@ import Layout from '../../components/layout'
 import SEO from '../../components/seo'
 import { Link } from 'gatsby'
 import { propOr, pathOr } from 'ramda'
+import { theme } from '../../theme'
 import BlogNavbar from '../../components/Navbar/blog'
 import Header from '../../components/Sections/Header'
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -28,7 +29,7 @@ const PostItem = styled.div`
   padding: 50px;
   height: auto;
   margin: 100px auto 100px 0;
-  border: 2px solid #9a1750;
+  border: 2px solid ${theme.colors.deepPink};
   display: block;
   overflow: hidden;
   background-color: #fff;
@@ -49,11 +50,11 @@ const PostExcerpt = styled(Markdown)`
     margin: 20px auto;
     > a {
       text-decoration: none;
-      color: #9a1750;
+      color: ${theme.colors.deepPink};
       &:visited,
       &:active,
       &:focus {
-        color: #9a1750;
+        color: ${theme.colors.deepPink};
       }
       > img {
         max-width: 100%;
@@ -72,18 +73,18 @@ const PostLink = styled(Link)`
   text-align: center;
   text-decoration: none;
   margin-top: 20px;
-  background-color: #e3e2df;
+  background-color: ${theme.colors.lightGrey};
   color: #9a1750;
-  border: 2px solid #9a1750;
+  border: 2px solid ${theme.colors.deepPink};
   width: 100px;
   height: 30px;
   cursor: pointer;
   transition: all 0.7s;
 
   &:hover {
-    background-color: #9a1750;
+    background-color: ${theme.colors.deepPink};
     color: #e3e2df;
-    border: 2px solid #ee4c7c;
+    border: 2px solid ${theme.colors.pink};
   }
 `
 
@@ -99,10 +100,10 @@ const PostPageNav = styled.div`
     text-decoration: none;
     color: #5d001e;
     & hover {
-      color: #5d001e;
+      color: ${theme.colors.deepRed};
     }
     & visited {
-      color: #5d001e;
+      color: ${theme.colors.deepRed};
     }
   }
   @media only screen and (max-width: 768px) {
