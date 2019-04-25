@@ -4,9 +4,11 @@ import styled from 'styled-components'
 const HeaderText = styled.h1`
   margin-right: 100px;
   text-align: center;
+  font-size: 48px;
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 28px;
     margin: 0;
+    padding-bottom: 20px;
   }
 `
 

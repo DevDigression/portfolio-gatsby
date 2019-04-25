@@ -14,6 +14,21 @@ import { faReply, faShare } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faReply, faShare)
 
+const Months = {
+  '01': 'January',
+  '02': 'February',
+  '03': 'March',
+  '04': 'April',
+  '05': 'May',
+  '06': 'June',
+  '07': 'July',
+  '08': 'August',
+  '09': 'September',
+  '10': 'October',
+  '11': 'November',
+  '12': 'December',
+}
+
 const PostsSection = styled.div`
   margin: 100px auto 100px 300px;
   height: 100vh;
@@ -40,10 +55,28 @@ const PostItem = styled.div`
   }
 `
 
-const PostTitle = styled.h2``
+const PostTitle = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @media (max-width: 920px) {
+    h2 {
+      font-size: 22px;
+    }
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+const PostDate = styled.span`
+  color: ${theme.colors.deepRed};
+`
 
 const PostExcerpt = styled(Markdown)`
-  margin-top: 20px;
+  margin-top: 50px;
   > p {
     font-size: 18px;
     line-height: 1.25em;
@@ -127,9 +160,16 @@ const BlogPage = ({ data, pathContext }) => {
         <Header page="blog" />
         {blogPosts.map(item => {
           const post = propOr(null, ['node'], item)
+          const publicationDate = post.slug.split('-')
           return (
             <PostItem>
-              <PostTitle>{post.postTitle}</PostTitle>
+              <PostTitle>
+                <h2>{post.postTitle}</h2>
+                <PostDate>
+                  {Months[publicationDate[1]]} {publicationDate[2]},{' '}
+                  {publicationDate[0]}
+                </PostDate>
+              </PostTitle>
               <PostExcerpt value={post.postExcerpt.internal.content} />
               <PostLink to={`blog/${post.slug}`}>Read More</PostLink>
             </PostItem>
