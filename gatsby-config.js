@@ -1,3 +1,7 @@
+require('dotenv').config({ path: `.env.${process.env.NODE_ENV}` })
+
+const getEnv = name => (process.env[name] ? process.env[name] : '')
+
 module.exports = {
   siteMetadata: {
     title: `Chris Rodgers`,
@@ -35,8 +39,20 @@ module.exports = {
         icon: `src/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: getEnv('CONTENTFUL_SPACE_ID'),
+        accessToken: getEnv('CONTENTFUL_ACCESS_TOKEN'),
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Oswald'],
+        },
+      },
+    },
   ],
 }
