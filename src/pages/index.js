@@ -9,6 +9,10 @@ import Contact from '../components/sections/Contact'
 import HomeNavbar from '../components/Navbar'
 
 const MainSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-width: 80%;
   margin-left: 200px;
   @media only screen and (max-width: 768px) {
