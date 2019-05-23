@@ -35,8 +35,9 @@ const Months = {
   '12': 'December',
 }
 
-const PostDate = styled.span`
-  color: ${theme.colors.deepRed};
+const PostItem = styled(Column)`
+  border: 2px solid ${theme.colors.deepPink};
+  overflow: hidden;
 `
 
 const PostExcerpt = styled(Markdown)`
@@ -85,11 +86,7 @@ const PostLink = styled(Link)`
   }
 `
 
-const PostPageNav = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-  padding-bottom: 50px;
+const PostPageNav = styled(Row)`
   > .next-nav {
     margin-left: auto;
   }
@@ -103,15 +100,6 @@ const PostPageNav = styled.div`
       color: ${theme.colors.deepRed};
     }
   }
-  @media only screen and (max-width: 768px) {
-    padding-top: 10px;
-    margin: 0 auto;
-  }
-`
-
-const PostItem = styled(Column)`
-  border: 2px solid ${theme.colors.deepPink};
-  overflow: hidden;
 `
 
 const BlogPage = ({ data, pathContext }) => {
@@ -141,7 +129,7 @@ const BlogPage = ({ data, pathContext }) => {
               <Row>
                 <PostItem
                   width={[1, null, null, 9 / 10]}
-                  my={(30, null, null, 100)}
+                  my={[30, null, null, 50]}
                   ml={['auto', null, null, 0]}
                   mr="auto"
                   p={50}
@@ -157,10 +145,10 @@ const BlogPage = ({ data, pathContext }) => {
                     <Text as="h2" fontSize={[4, null, 5]}>
                       {post.postTitle}
                     </Text>
-                    <PostDate>
+                    <Text as="span" color={theme.colors.deepPink}>
                       {Months[publicationDate[1]]} {publicationDate[2]},{' '}
                       {publicationDate[0]}
-                    </PostDate>
+                    </Text>
                   </Row>
                   <PostExcerpt value={post.postExcerpt.internal.content} />
                   <PostLink to={`blog/${post.slug}`}>Read More</PostLink>
@@ -168,7 +156,12 @@ const BlogPage = ({ data, pathContext }) => {
               </Row>
             )
           })}
-          <PostPageNav>
+          <PostPageNav
+            justifyContent="space-between"
+            pb={50}
+            pt={[10, null, null, 0]}
+            pr={[0, null, null, 110]}
+          >
             {previousPage && (
               <Link
                 className="previous-nav"
