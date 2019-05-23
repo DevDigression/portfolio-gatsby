@@ -33,6 +33,14 @@ const ImageColumn = styled(Column)`
   }
 `
 
+const TextColumn = styled(Column)`
+  .project-tech {
+    width: 100%;
+    margin: 15px auto;
+    color: #9a1750;
+  }
+`
+
 const Projects = () => {
   return (
     <div id="projects" className="projects-page">
@@ -62,7 +70,7 @@ const Projects = () => {
                     src={project.mobileImage}
                   />
                 </ImageColumn>
-                <Column width={[1, null, null, 1 / 2]}>
+                <TextColumn width={[1, null, null, 1 / 2]}>
                   <h2>{project.title}</h2>
                   <div className="project-tech">
                     <ul>
@@ -89,7 +97,7 @@ const Projects = () => {
                       <button>Code</button>
                     </a>
                   </div>
-                </Column>
+                </TextColumn>
               </Row>
             </Project>
             <div className="clear" />
