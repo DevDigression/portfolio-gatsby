@@ -1,6 +1,19 @@
 import React from 'react'
-import { pathOr } from 'ramda'
+import { theme } from '../../../theme'
+import styled from 'styled-components'
+import { FluidContainer, Row, Column } from '../../Styles/grid'
 import { ProjectData } from './data'
+
+const Project = styled(Column)`
+  border: 2px solid ${theme.colors.deepPink};
+  .project-tech > ul {
+    list-style: none;
+    padding-left: 0;
+    > li {
+      display: inline;
+    }
+  }
+`
 
 const Projects = () => {
   return (
@@ -8,8 +21,14 @@ const Projects = () => {
       <header>Projects</header>
       {ProjectData.map(project => {
         return (
-          <>
-            <div className="project">
+          <Row>
+            <Project
+              width={9 / 10}
+              my={[20, null, null, 50]}
+              mx="auto"
+              bg="#fff"
+              color="#333"
+            >
               <div className={`project-image ${project.alignImages}`}>
                 <img
                   className={`project-image-${project.alignImages} ${
@@ -56,9 +75,9 @@ const Projects = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </Project>
             <div className="clear" />
-          </>
+          </Row>
         )
       })}
     </div>
