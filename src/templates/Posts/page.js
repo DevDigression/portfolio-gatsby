@@ -7,16 +7,12 @@ import { Link } from 'gatsby'
 import { propOr, pathOr } from 'ramda'
 import { theme } from '../../theme'
 import { Text } from 'rebass'
-import { FluidContainer, Row, Column } from '../../components/Styles/grid'
+import { Row, Column } from '../../components/Styles/grid'
 import BlogNavbar from '../../components/Navbar/blog'
 import Header from '../../components/Sections/Header'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {
-  faReply,
-  faShare,
-  faCloudMoonRain,
-} from '@fortawesome/free-solid-svg-icons'
+import { faReply, faShare } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faReply, faShare)
 
@@ -87,12 +83,9 @@ const PostLink = styled(Link)`
 `
 
 const PostPageNav = styled(Row)`
-  > .next-nav {
-    margin-left: auto;
-  }
   > a {
     text-decoration: none;
-    color: #5d001e;
+    color: ${theme.colors.deepRed};
     & hover {
       color: ${theme.colors.deepRed};
     }
@@ -164,7 +157,6 @@ const BlogPage = ({ data, pathContext }) => {
           >
             {previousPage && (
               <Link
-                className="previous-nav"
                 to={
                   previousPagePath === 1 ? `/blog` : `/blog/${previousPagePath}`
                 }
@@ -173,7 +165,7 @@ const BlogPage = ({ data, pathContext }) => {
               </Link>
             )}
             {nextPage && (
-              <Link className="next-nav" to={`/blog/${nextPagePath}`}>
+              <Link to={`/blog/${nextPagePath}`}>
                 Older Posts <FontAwesomeIcon icon="share" />
               </Link>
             )}
