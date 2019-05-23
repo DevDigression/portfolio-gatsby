@@ -6,11 +6,17 @@ import SEO from '../../components/seo'
 import { Link } from 'gatsby'
 import { propOr, pathOr } from 'ramda'
 import { theme } from '../../theme'
+import { Text } from 'rebass'
+import { FluidContainer, Row, Column } from '../../components/Styles/grid'
 import BlogNavbar from '../../components/Navbar/blog'
 import Header from '../../components/Sections/Header'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faReply, faShare } from '@fortawesome/free-solid-svg-icons'
+import {
+  faReply,
+  faShare,
+  faCloudMoonRain,
+} from '@fortawesome/free-solid-svg-icons'
 
 library.add(faReply, faShare)
 
@@ -28,48 +34,6 @@ const Months = {
   '11': 'November',
   '12': 'December',
 }
-
-const PostsSection = styled.div`
-  margin: 100px auto 100px 300px;
-  height: 100vh;
-  @media only screen and (max-width: 768px) {
-    width: 100%;
-    margin: 100px auto;
-    padding: 15px;
-  }
-`
-
-const PostItem = styled.div`
-  width: 90%;
-  padding: 50px;
-  height: auto;
-  margin: 100px auto 100px 0;
-  border: 2px solid ${theme.colors.deepPink};
-  display: block;
-  overflow: hidden;
-  background-color: #fff;
-  color: #333;
-  @media (max-width: 768px) {
-    width: 100%;
-    margin: 30px auto;
-  }
-`
-
-const PostTitle = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  @media (max-width: 920px) {
-    h2 {
-      font-size: 22px;
-    }
-  }
-  @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-`
 
 const PostDate = styled.span`
   color: ${theme.colors.deepRed};
@@ -145,6 +109,11 @@ const PostPageNav = styled.div`
   }
 `
 
+const PostItem = styled(Column)`
+  border: 2px solid ${theme.colors.deepPink};
+  overflow: hidden;
+`
+
 const BlogPage = ({ data, pathContext }) => {
   const page = pathOr(null, ['page'], pathContext)
   const blogPosts = pathOr([], ['posts', 'edges'], data)
@@ -155,44 +124,69 @@ const BlogPage = ({ data, pathContext }) => {
   return (
     <Layout>
       <BlogNavbar />
-      <PostsSection>
-        <SEO title="Blog" keywords={[`web development`, `gatsby`, `react`]} />
-        <Header page="blog" />
-        {blogPosts.map(item => {
-          const post = propOr(null, ['node'], item)
-          const publicationDate = post.slug.split('-')
-          return (
-            <PostItem>
-              <PostTitle>
-                <h2>{post.postTitle}</h2>
-                <PostDate>
-                  {Months[publicationDate[1]]} {publicationDate[2]},{' '}
-                  {publicationDate[0]}
-                </PostDate>
-              </PostTitle>
-              <PostExcerpt value={post.postExcerpt.internal.content} />
-              <PostLink to={`blog/${post.slug}`}>Read More</PostLink>
-            </PostItem>
-          )
-        })}
-        <PostPageNav>
-          {previousPage && (
-            <Link
-              className="previous-nav"
-              to={
-                previousPagePath === 1 ? `/blog` : `/blog/${previousPagePath}`
-              }
-            >
-              <FontAwesomeIcon icon="reply" /> Newer Posts
-            </Link>
-          )}
-          {nextPage && (
-            <Link className="next-nav" to={`/blog/${nextPagePath}`}>
-              Older Posts <FontAwesomeIcon icon="share" />
-            </Link>
-          )}
-        </PostPageNav>
-      </PostsSection>
+      <Row justifyContent="center">
+        <Column
+          width={[9 / 10, null, null, 8 / 10]}
+          my={100}
+          ml={['auto', null, null, 300]}
+          mr="auto"
+          p={[15, null, null, 0]}
+        >
+          <SEO title="Blog" keywords={[`web development`, `gatsby`, `react`]} />
+          <Header page="blog" />
+          {blogPosts.map(item => {
+            const post = propOr(null, ['node'], item)
+            const publicationDate = post.slug.split('-')
+            return (
+              <Row>
+                <PostItem
+                  width={[1, null, null, 9 / 10]}
+                  my={(30, null, null, 100)}
+                  ml={['auto', null, null, 0]}
+                  mr="auto"
+                  p={50}
+                  bg="#fff"
+                  color="#333"
+                >
+                  <Row
+                    flexDirection={['column', null, null, 'row']}
+                    justifyContent={['center', null, null, 'space-between']}
+                    alignItems="center"
+                    px={3}
+                  >
+                    <Text as="h2" fontSize={[4, null, 5]}>
+                      {post.postTitle}
+                    </Text>
+                    <PostDate>
+                      {Months[publicationDate[1]]} {publicationDate[2]},{' '}
+                      {publicationDate[0]}
+                    </PostDate>
+                  </Row>
+                  <PostExcerpt value={post.postExcerpt.internal.content} />
+                  <PostLink to={`blog/${post.slug}`}>Read More</PostLink>
+                </PostItem>
+              </Row>
+            )
+          })}
+          <PostPageNav>
+            {previousPage && (
+              <Link
+                className="previous-nav"
+                to={
+                  previousPagePath === 1 ? `/blog` : `/blog/${previousPagePath}`
+                }
+              >
+                <FontAwesomeIcon icon="reply" /> Newer Posts
+              </Link>
+            )}
+            {nextPage && (
+              <Link className="next-nav" to={`/blog/${nextPagePath}`}>
+                Older Posts <FontAwesomeIcon icon="share" />
+              </Link>
+            )}
+          </PostPageNav>
+        </Column>
+      </Row>
     </Layout>
   )
 }
