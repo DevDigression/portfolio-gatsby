@@ -26,6 +26,7 @@ nav {
   top: 0;
   bottom: 0;
   box-shadow: -6px 0 8px 8px;
+  z-index: 999;
 }
 
 nav a {
@@ -62,8 +63,9 @@ button:focus {
 
 .landing-video {
   position: absolute;
+  z-index: -1;
   top: 0;
-  left: 202px;
+  left: 0;
   overflow: hidden;
   height: 100vh;
   width: 100%;
@@ -76,13 +78,13 @@ button:focus {
 
 .landing-video-overlay {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: #e3afbc;
   opacity: 0.8;
   z-index: 1;
   position: absolute;
   top: 0;
-  left: 202px;
+  left: 0;
 }
 
 .landing-text {
@@ -449,6 +451,7 @@ footer {
     position: absolute;
     top: 60px;
     left: 0;
+    right: 0;
     overflow: hidden;
     height: 100vh;
     width: 100%;
@@ -461,13 +464,14 @@ footer {
 
   .landing-video-overlay {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     background: #e3afbc;
     opacity: 0.7;
     z-index: 1;
     position: absolute;
     top: 60px;
     left: 0;
+    right: 0;
   }
 
   .landing-text {

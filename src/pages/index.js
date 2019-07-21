@@ -9,15 +9,12 @@ import Contact from '../components/Sections/Contact'
 import HomeNavbar from '../components/Navbar'
 
 const MainSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-width: 80%;
-  margin-left: 200px;
-  @media only screen and (max-width: 768px) {
+  margin: 50px auto 100px 200px;
+  height: 100vh;
+  @media (max-width: 768px) {
     width: 100%;
-    margin-left: 0;
-    margin-top: 100px;
+    margin: 100px auto;
+    padding: 15px;
   }
 `
 

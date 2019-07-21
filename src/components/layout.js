@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 import './styles.css'
-import Navbar from '../components/Navbar'
 
 const Layout = ({ children }) => (
   <StaticQuery
