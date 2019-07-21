@@ -23,14 +23,6 @@ const Contact = props => {
           about my experience as well as what I have to offer you as a
           developer!
         </p>
-        <p>
-          <a
-            href="https://devdigression.com/wp-content/uploads/2018/10/Chris-Rodgers-Web-Developer-Resume-2018.pdf"
-            target="_blank"
-          >
-            View my resume here
-          </a>
-        </p>
       </div>
       <div className="contact-icons">
         <a href="https://github.com/DevDigression" target="_blank">
@@ -79,7 +71,6 @@ const Contact = props => {
         </a>
       </div>
     </div>
-    // <div className="clear"></div>
   )
 }
 
