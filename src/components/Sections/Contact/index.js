@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -10,6 +11,16 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 library.add(faEnvelope, faGithub, faFacebook, faTwitter, faLinkedinIn)
+
+const ContactLinks = styled.div`
+  display: flex;
+  justify-content: space-around;
+  max-width: 95%;
+  margin-top: 100px;
+  @media (min-width: 920px) {
+    margin-left: 20px;
+  }
+`
 
 const Contact = props => {
   return (
@@ -24,7 +35,7 @@ const Contact = props => {
           developer!
         </p>
       </div>
-      <div className="contact-icons">
+      <ContactLinks>
         <a href="https://github.com/DevDigression" target="_blank">
           <FontAwesomeIcon icon={faGithub} size="3x" />
         </a>
@@ -46,30 +57,7 @@ const Contact = props => {
         <a href="mailto:carodgers@cybercoast.com" target="_blank">
           <FontAwesomeIcon icon={faEnvelope} size="3x" />
         </a>
-      </div>
-      <div className="contact-icons-mobile">
-        <a href="https://github.com/DevDigression" target="_blank">
-          <FontAwesomeIcon icon={faGithub} />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/chrisrodgers-webdev/"
-          target="_blank"
-        >
-          <FontAwesomeIcon icon={faLinkedinIn} />
-        </a>
-        <a href="https://twitter.com/devdigression" target="_blank">
-          <FontAwesomeIcon icon={faTwitter} />
-        </a>
-        <a
-          href="https://www.facebook.com/people/Chris-Rodgers/100015523357713"
-          target="_blank"
-        >
-          <FontAwesomeIcon icon={faFacebook} />
-        </a>
-        <a href="mailto:carodgers@cybercoast.com" target="_blank">
-          <FontAwesomeIcon icon={faEnvelope} />
-        </a>
-      </div>
+      </ContactLinks>
     </div>
   )
 }
