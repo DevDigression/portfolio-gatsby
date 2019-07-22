@@ -45,13 +45,13 @@ class BlogNavbar extends React.Component {
             const location = propOr(null, ['location'], link)
             const title = propOr(null, ['title'], link)
             return location.includes('/') ? (
-              <li>
+              <li key={title}>
                 <Link to={location} className={`${location.slice(1)}-nav`}>
                   {title}
                 </Link>
               </li>
             ) : (
-              <li>
+              <li key={title}>
                 <NavLink
                   name={location}
                   className={`${location}-nav`}

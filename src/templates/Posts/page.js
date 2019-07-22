@@ -162,7 +162,7 @@ const BlogPage = ({ data, pathContext }) => {
           const post = propOr(null, ['node'], item)
           const publicationDate = post.slug.split('-')
           return (
-            <PostItem>
+            <PostItem key={item.id}>
               <PostTitle>
                 <h2>{post.postTitle}</h2>
                 <PostDate>

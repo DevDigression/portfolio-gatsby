@@ -8,19 +8,15 @@ const Projects = () => {
       <header>Projects</header>
       {ProjectData.map(project => {
         return (
-          <>
+          <div className="projects-display" key={project.title}>
             <div className="project">
               <div className={`project-image ${project.alignImages}`}>
                 <img
-                  className={`project-image-${project.alignImages} ${
-                    project.alignImages
-                  }`}
+                  className={`project-image-${project.alignImages} ${project.alignImages}`}
                   src={project.headerImage}
                 />
                 <img
-                  className={`project-image-${project.alignImages} ${
-                    project.alignImages
-                  }`}
+                  className={`project-image-${project.alignImages} ${project.alignImages}`}
                   src={project.appImage}
                 />
                 <img
@@ -58,7 +54,7 @@ const Projects = () => {
               </div>
             </div>
             <div className="clear" />
-          </>
+          </div>
         )
       })}
     </div>
