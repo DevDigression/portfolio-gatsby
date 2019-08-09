@@ -16,7 +16,7 @@ export const ProjectData = [
     alignImages: `left`,
     headerImage: ApplyYourselfHeader,
     appImage: ApplyYourselfStats,
-    mobileImage: `http://devdigression.com/wp-content/uploads/2018/03/Apply-Yourself-Intro.jpg`,
+    mobileImage: ApplyYourselfHeader,
   },
   {
     title: `Studyficient`,
@@ -28,7 +28,7 @@ export const ProjectData = [
     alignImages: `right`,
     headerImage: StudyficientHeader,
     appImage: StudyficientStudyspace,
-    mobileImage: `http://devdigression.com/wp-content/uploads/2017/12/Studyficient-Header.jpg`,
+    mobileImage: StudyficientHeader,
   },
   {
     title: `Be There - For Your Career`,
@@ -40,6 +40,6 @@ export const ProjectData = [
     alignImages: `left`,
     headerImage: BeThereHeader,
     appImage: BeThereMap,
-    mobileImage: `http://devdigression.com/wp-content/uploads/2017/11/Featured-Image-Be-There.png`,
+    mobileImage: BeThereHeader,
   },
 ]
