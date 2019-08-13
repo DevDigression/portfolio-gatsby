@@ -58,12 +58,12 @@ const About = props => (
       </p>
       <p>
         Throughout my experience, I have also maintained a{' '}
-        <a href="http://devdigression.com/blog" target="_blank">
+        <a href="/blog" target="_blank">
           blog
         </a>{' '}
         to serve as a journal of my progress as well as to offer a bit of
         assistance to newcomers to the field. Feel free to{' '}
-        <a href="http://devdigression.com/blog" target="_blank">
+        <a href="/blog" target="_blank">
           check it out
         </a>
         !
