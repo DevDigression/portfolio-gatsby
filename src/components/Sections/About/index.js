@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'gatsby'
 
 const About = props => (
   <div id="about" className="about-page">
@@ -58,9 +59,9 @@ const About = props => (
       </p>
       <p>
         Throughout my experience, I have also maintained a{' '}
-        <a href="/blog">blog</a> to serve as a journal of my progress as well as
-        to offer a bit of assistance to newcomers to the field. Feel free to{' '}
-        <a href="/blog">check it out</a>!
+        <Link to="/blog">blog</Link> to serve as a journal of my progress as
+        well as to offer a bit of assistance to newcomers to the field. Feel
+        free to <Link to="/blog">check it out</Link>!
       </p>
     </div>
   </div>
