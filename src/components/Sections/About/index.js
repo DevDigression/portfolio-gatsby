@@ -6,7 +6,7 @@ const About = props => (
     <header>About Me</header>
     <div className="about-text">
       <p>
-        For the past six years, I have been a social studies teacher - as well
+        Prior to working in software, I was a social studies teacher - as well
         as de facto tech support - at a small private school in South Florida.
       </p>
       <p>
@@ -41,7 +41,8 @@ const About = props => (
       </p>
       <p>
         Getting involved in the local coding community has further combined my
-        passion for learning and teaching. Recently, I was invited to{' '}
+        passion for learning and teaching. I was invited the host of a local
+        coding meetup to{' '}
         <a href="https://www.youtube.com/watch?v=G9y3yJtEWYk" target="_blank">
           give a presentation
         </a>{' '}
